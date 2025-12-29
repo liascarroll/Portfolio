@@ -1,16 +1,14 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, ExternalLink, Trophy, Globe, Database, BarChart3, FileSpreadsheet } from "lucide-react";
+import { Code, Trophy, Globe, Database, BarChart3, FileSpreadsheet } from "lucide-react";
 
 export function ProjectsSection() {
   const featuredProject = {
     id: "property-pilot",
     title: "Property Pilot",
     description:
-      "A comprehensive real estate management platform built on Replit, featuring property tracking, financial analytics, and tenant management capabilities. Demonstrates full-stack development skills with modern web technologies.",
+      "A comprehensive real estate management platform featuring property tracking, financial analytics, and tenant management capabilities. Built with modern full-stack technologies, the platform enables property managers to streamline operations, track rental income, manage maintenance requests, and generate financial reports. Demonstrates expertise in database design, API development, and responsive UI implementation.",
     techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    link: "https://replit.com/@liascarroll/property-pilot",
   };
 
   const undergraduateProjects = [
@@ -103,12 +101,6 @@ export function ProjectsSection() {
                   </Badge>
                 ))}
               </div>
-              <Button asChild data-testid="button-view-property-pilot">
-                <a href={featuredProject.link} target="_blank" rel="noopener noreferrer" aria-label="View Property Pilot on Replit (opens in new tab)">
-                  View on Replit
-                  <ExternalLink className="h-4 w-4" />
-                </a>
-              </Button>
             </div>
           </div>
         </Card>
