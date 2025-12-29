@@ -33,24 +33,24 @@ The portfolio is fully functional with all sections implemented:
 client/src/
 ├── components/
 │   ├── theme-provider.tsx    # Theme context provider
+│   ├── portfolio/            # Modular portfolio components
+│   │   ├── index.ts          # Barrel exports
+│   │   ├── navigation.tsx    # Fixed nav with smooth scroll
+│   │   ├── hero-section.tsx  # Introduction with badges/CTAs
+│   │   ├── about-section.tsx # Summary and competency cards
+│   │   ├── projects-section.tsx # Featured and undergraduate projects
+│   │   ├── experience-section.tsx # Timeline of work experience
+│   │   ├── education-section.tsx # Education and achievements
+│   │   ├── skills-section.tsx # Technical and professional skills
+│   │   ├── contact-section.tsx # Email and LinkedIn links
+│   │   └── footer.tsx        # Copyright and tagline
 │   └── ui/                   # Shadcn components
 ├── pages/
-│   └── home.tsx              # Main portfolio page (all sections)
+│   └── home.tsx              # Main portfolio page (composes sections)
 ├── App.tsx                   # Root component with routing
 ├── index.css                 # Tailwind styles
 └── main.tsx                  # Entry point
 ```
-
-### Key Sections in home.tsx
-- `Navigation` - Fixed nav with smooth scroll links
-- `HeroSection` - Introduction with badges and CTAs
-- `AboutSection` - Summary and competency cards
-- `ProjectsSection` - Featured and undergraduate projects
-- `ExperienceSection` - Timeline of work experience
-- `EducationSection` - Education and achievements
-- `SkillsSection` - Technical and professional skills
-- `ContactSection` - Email and LinkedIn links
-- `Footer` - Copyright and tagline
 
 ### Assets
 - Resume PDF: `/public/Resume_-_12.1.25_-_Lia_Carroll_1766980682443.pdf`
