@@ -24,20 +24,21 @@ export function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28" aria-label="About me" data-testid="section-about">
+    <section id="about" className="py-24 md:py-32" aria-label="About me" data-testid="section-about">
       <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4" data-testid="heading-about">
+        <div className="text-center mb-16">
+          <p className="text-sm font-medium text-primary mb-3 tracking-wider uppercase">Background</p>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4" data-testid="heading-about">
             About Me
           </h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 mx-auto rounded-full" />
         </div>
 
-        <p className="text-lg text-muted-foreground leading-relaxed mb-12 text-center" data-testid="text-about-summary">
+        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-16 text-center max-w-3xl mx-auto" data-testid="text-about-summary">
           As an Investment Operations Analyst at Morgan Stanley&apos;s Parametric division, 
           I combine my dual expertise in Finance and Information Systems to streamline 
-          complex operational processes. My background spans from managing $1M+ budgets to 
-          developing scalable scheduling systems for 300+ clients, always focusing on the 
+          complex operational processes. My background spans from managing <span className="text-foreground font-medium">$1M+ budgets</span> to 
+          developing scalable scheduling systems for <span className="text-foreground font-medium">300+ clients</span>, always focusing on the 
           intersection of strategic finance and technical innovation.
         </p>
 

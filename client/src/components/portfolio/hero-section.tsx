@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Briefcase, GraduationCap, Trophy, Globe, ChevronDown, Linkedin, TrendingUp } from "lucide-react";
+import { Briefcase, GraduationCap, Trophy, Globe, ChevronDown, Linkedin } from "lucide-react";
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -17,9 +17,10 @@ export function HeroSection() {
       aria-label="Introduction"
       data-testid="section-hero"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/8 via-background to-background" />
+      <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '8s' }} />
+      <div className="absolute bottom-20 left-1/4 w-[400px] h-[400px] bg-accent/25 rounded-full blur-[80px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-20">
         <div className="mb-6">
@@ -47,10 +48,6 @@ export function HeroSection() {
           <Badge variant="outline" data-testid="badge-hero-education">
             <GraduationCap className="h-3 w-3 mr-1" />
             UW Foster &apos;25
-          </Badge>
-          <Badge variant="outline" data-testid="badge-hero-gpa">
-            <TrendingUp className="h-3 w-3 mr-1" />
-            3.7 GPA
           </Badge>
           <Badge variant="outline" data-testid="badge-hero-competition">
             <Trophy className="h-3 w-3 mr-1" />

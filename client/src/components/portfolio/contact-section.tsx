@@ -3,14 +3,16 @@ import { Mail, Linkedin, MapPin } from "lucide-react";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20 md:py-28 bg-muted/30" aria-label="Contact information" data-testid="section-contact">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+    <section id="contact" className="py-24 md:py-32 bg-muted/30 relative overflow-hidden" aria-label="Contact information" data-testid="section-contact">
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent" />
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4" data-testid="heading-contact">
+          <p className="text-sm font-medium text-primary mb-3 tracking-wider uppercase">Get In Touch</p>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4" data-testid="heading-contact">
             Let&apos;s Connect
           </h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-6" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-contact-summary">
+          <div className="w-20 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 mx-auto rounded-full mb-8" />
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto" data-testid="text-contact-summary">
             I&apos;m always interested in discussing new opportunities, 
             collaborations, or just connecting with fellow professionals 
             in finance and tech.

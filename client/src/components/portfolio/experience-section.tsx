@@ -71,13 +71,14 @@ export function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="py-20 md:py-28" aria-label="Professional experience" data-testid="section-experience">
+    <section id="experience" className="py-24 md:py-32" aria-label="Professional experience" data-testid="section-experience">
       <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4" data-testid="heading-experience">
+        <div className="text-center mb-16">
+          <p className="text-sm font-medium text-primary mb-3 tracking-wider uppercase">Career</p>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4" data-testid="heading-experience">
             Professional Experience
           </h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 mx-auto rounded-full" />
         </div>
 
         <div className="relative" data-testid="timeline-experience">
