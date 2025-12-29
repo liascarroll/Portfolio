@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useTheme } from "@/components/theme-provider";
 import {
   Briefcase,
   GraduationCap,
@@ -26,33 +27,17 @@ import {
 } from "lucide-react";
 
 function ThemeToggle() {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window !== "undefined") {
-      return document.documentElement.classList.contains("dark");
-    }
-    return false;
-  });
-
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    if (newTheme) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <Button
       size="icon"
       variant="ghost"
       onClick={toggleTheme}
+      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       data-testid="button-theme-toggle"
     >
-      {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </Button>
   );
 }
@@ -69,46 +54,56 @@ function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav 
+      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
+      role="navigation"
+      aria-label="Main navigation"
+    >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between gap-4 h-16">
-          <button
-            onClick={() => scrollToSection("hero")}
+          <a
+            href="#hero"
+            onClick={(e) => { e.preventDefault(); scrollToSection("hero"); }}
             className="font-semibold text-lg tracking-tight"
             data-testid="link-logo"
+            aria-label="Go to top of page"
           >
             Lia Carroll
-          </button>
+          </a>
 
           <div className="hidden md:flex items-center gap-6">
-            <button
-              onClick={() => scrollToSection("about")}
+            <a
+              href="#about"
+              onClick={(e) => { e.preventDefault(); scrollToSection("about"); }}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               data-testid="link-about"
             >
               About
-            </button>
-            <button
-              onClick={() => scrollToSection("projects")}
+            </a>
+            <a
+              href="#projects"
+              onClick={(e) => { e.preventDefault(); scrollToSection("projects"); }}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               data-testid="link-projects"
             >
               Projects
-            </button>
-            <button
-              onClick={() => scrollToSection("experience")}
+            </a>
+            <a
+              href="#experience"
+              onClick={(e) => { e.preventDefault(); scrollToSection("experience"); }}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               data-testid="link-experience"
             >
               Experience
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               data-testid="link-contact"
             >
               Contact
-            </button>
+            </a>
           </div>
 
           <div className="flex items-center gap-2">
@@ -120,7 +115,7 @@ function Navigation() {
               data-testid="button-download-resume"
               asChild
             >
-              <a href="/Resume_-_12.1.25_-_Lia_Carroll_1766980682443.pdf" download>
+              <a href="/Resume_-_12.1.25_-_Lia_Carroll_1766980682443.pdf" download aria-label="Download resume PDF">
                 <Download className="h-4 w-4" />
                 Resume
               </a>
@@ -130,6 +125,8 @@ function Navigation() {
               variant="ghost"
               className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
               data-testid="button-mobile-menu"
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -138,36 +135,44 @@ function Navigation() {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="md:hidden py-4 border-t border-border" role="menu">
             <div className="flex flex-col gap-4">
-              <button
-                onClick={() => scrollToSection("about")}
+              <a
+                href="#about"
+                role="menuitem"
+                onClick={(e) => { e.preventDefault(); scrollToSection("about"); }}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
                 data-testid="link-about-mobile"
               >
                 About
-              </button>
-              <button
-                onClick={() => scrollToSection("projects")}
+              </a>
+              <a
+                href="#projects"
+                role="menuitem"
+                onClick={(e) => { e.preventDefault(); scrollToSection("projects"); }}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
                 data-testid="link-projects-mobile"
               >
                 Projects
-              </button>
-              <button
-                onClick={() => scrollToSection("experience")}
+              </a>
+              <a
+                href="#experience"
+                role="menuitem"
+                onClick={(e) => { e.preventDefault(); scrollToSection("experience"); }}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
                 data-testid="link-experience-mobile"
               >
                 Experience
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
+              </a>
+              <a
+                href="#contact"
+                role="menuitem"
+                onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
                 data-testid="link-contact-mobile"
               >
                 Contact
-              </button>
+              </a>
               <Button
                 variant="default"
                 size="sm"
@@ -175,7 +180,7 @@ function Navigation() {
                 data-testid="button-download-resume-mobile"
                 asChild
               >
-                <a href="/Resume_-_12.1.25_-_Lia_Carroll_1766980682443.pdf" download>
+                <a href="/Resume_-_12.1.25_-_Lia_Carroll_1766980682443.pdf" download aria-label="Download resume PDF">
                   <Download className="h-4 w-4" />
                   Resume
                 </a>
@@ -200,6 +205,7 @@ function HeroSection() {
     <section
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+      aria-label="Introduction"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -207,7 +213,7 @@ function HeroSection() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-20">
         <div className="mb-6">
-          <Badge variant="secondary" className="mb-6">
+          <Badge variant="secondary" className="mb-6" data-testid="badge-current-role">
             <Briefcase className="h-3 w-3 mr-1" />
             Investment Operations Analyst at Morgan Stanley
           </Badge>
@@ -217,30 +223,30 @@ function HeroSection() {
           Lia Carroll
         </h1>
 
-        <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-medium">
+        <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-medium" data-testid="text-hero-tagline">
           Finance & Information Systems
         </p>
 
-        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-summary">
           Bridging the gap between strategic finance and technical innovation. 
           UW Foster School of Business graduate with expertise in investment operations, 
           data analytics, and building scalable solutions.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-          <Badge variant="outline">
+          <Badge variant="outline" data-testid="badge-education">
             <GraduationCap className="h-3 w-3 mr-1" />
             UW Foster &apos;25
           </Badge>
-          <Badge variant="outline">
+          <Badge variant="outline" data-testid="badge-gpa">
             <TrendingUp className="h-3 w-3 mr-1" />
             3.7 GPA
           </Badge>
-          <Badge variant="outline">
+          <Badge variant="outline" data-testid="badge-competition">
             <Trophy className="h-3 w-3 mr-1" />
             Case Competition Winner
           </Badge>
-          <Badge variant="outline">
+          <Badge variant="outline" data-testid="badge-languages">
             <Globe className="h-3 w-3 mr-1" />
             Trilingual
           </Badge>
@@ -251,8 +257,8 @@ function HeroSection() {
             View Projects
             <ChevronDown className="h-4 w-4" />
           </Button>
-          <Button size="lg" variant="outline" asChild data-testid="button-linkedin">
-            <a href="https://www.linkedin.com/in/lia-carroll" target="_blank" rel="noopener noreferrer">
+          <Button size="lg" variant="outline" asChild data-testid="button-linkedin-hero">
+            <a href="https://www.linkedin.com/in/lia-carroll" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn (opens in new tab)">
               <Linkedin className="h-4 w-4" />
               Connect on LinkedIn
             </a>
@@ -283,16 +289,16 @@ function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28">
+    <section id="about" className="py-20 md:py-28" aria-label="About me">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4" data-testid="heading-about">
             About Me
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
         </div>
 
-        <p className="text-lg text-muted-foreground leading-relaxed mb-12 text-center">
+        <p className="text-lg text-muted-foreground leading-relaxed mb-12 text-center" data-testid="text-about-summary">
           As an Investment Operations Analyst at Morgan Stanley&apos;s Parametric division, 
           I combine my dual expertise in Finance and Information Systems to streamline 
           complex operational processes. My background spans from managing $1M+ budgets to 
@@ -301,8 +307,8 @@ function AboutSection() {
         </p>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {competencies.map((item) => (
-            <Card key={item.title} className="text-center">
+          {competencies.map((item, index) => (
+            <Card key={item.title} className="text-center" data-testid={`card-competency-${index}`}>
               <CardContent className="pt-6">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <item.icon className="h-6 w-6 text-primary" />
@@ -379,16 +385,16 @@ function ProjectsSection() {
   ];
 
   return (
-    <section id="projects" className="py-20 md:py-28 bg-muted/30">
+    <section id="projects" className="py-20 md:py-28 bg-muted/30" aria-label="Projects">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4" data-testid="heading-projects">
             Featured Projects
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
         </div>
 
-        <Card className="mb-12 overflow-hidden">
+        <Card className="mb-12 overflow-hidden" data-testid="card-featured-project">
           <div className="md:flex">
             <div className="md:w-1/2 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/10 p-8 flex items-center justify-center min-h-[280px]">
               <div className="text-center">
@@ -399,20 +405,20 @@ function ProjectsSection() {
               </div>
             </div>
             <div className="md:w-1/2 p-8">
-              <Badge className="mb-4">Featured</Badge>
-              <h3 className="text-2xl font-bold mb-3">{featuredProject.title}</h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <Badge className="mb-4" data-testid="badge-featured">Featured</Badge>
+              <h3 className="text-2xl font-bold mb-3" data-testid="text-featured-title">{featuredProject.title}</h3>
+              <p className="text-muted-foreground mb-6 leading-relaxed" data-testid="text-featured-description">
                 {featuredProject.description}
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
                 {featuredProject.techStack.map((tech) => (
-                  <Badge key={tech} variant="outline">
+                  <Badge key={tech} variant="outline" data-testid={`badge-tech-${tech.toLowerCase().replace(/\s+/g, '-')}`}>
                     {tech}
                   </Badge>
                 ))}
               </div>
               <Button asChild data-testid="button-view-property-pilot">
-                <a href={featuredProject.link} target="_blank" rel="noopener noreferrer">
+                <a href={featuredProject.link} target="_blank" rel="noopener noreferrer" aria-label="View Property Pilot on Replit (opens in new tab)">
                   View on Replit
                   <ExternalLink className="h-4 w-4" />
                 </a>
@@ -421,12 +427,12 @@ function ProjectsSection() {
           </div>
         </Card>
 
-        <h3 className="text-2xl font-semibold mb-6 text-center">
+        <h3 className="text-2xl font-semibold mb-6 text-center" data-testid="heading-undergraduate-projects">
           Undergraduate Projects
         </h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {undergraduateProjects.map((project) => (
-            <Card key={project.title} className="hover-elevate">
+          {undergraduateProjects.map((project, index) => (
+            <Card key={project.title} className="hover-elevate" data-testid={`card-project-${index}`}>
               <CardHeader>
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -519,22 +525,22 @@ function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="py-20 md:py-28">
+    <section id="experience" className="py-20 md:py-28" aria-label="Professional experience">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4" data-testid="heading-experience">
             Professional Experience
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
         </div>
 
         <div className="relative">
-          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-0.5 bg-border" />
+          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-0.5 bg-border" aria-hidden="true" />
 
           <div className="space-y-8">
             {experiences.map((exp, expIndex) => (
-              <div key={exp.company} className="relative pl-12 md:pl-16">
-                <div className="absolute left-2 md:left-4 top-2 w-5 h-5 rounded-full bg-primary flex items-center justify-center">
+              <div key={exp.company} className="relative pl-12 md:pl-16" data-testid={`card-experience-${expIndex}`}>
+                <div className="absolute left-2 md:left-4 top-2 w-5 h-5 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
                   <Briefcase className="h-3 w-3 text-primary-foreground" />
                 </div>
 
@@ -544,7 +550,7 @@ function ExperienceSection() {
                       <div>
                         <CardTitle className="text-xl">{exp.company}</CardTitle>
                         <CardDescription className="flex items-center gap-1 mt-1">
-                          <MapPin className="h-3 w-3" />
+                          <MapPin className="h-3 w-3" aria-hidden="true" />
                           {exp.location}
                         </CardDescription>
                       </div>
@@ -569,7 +575,7 @@ function ExperienceSection() {
                                 key={i}
                                 className="text-sm text-muted-foreground leading-relaxed flex gap-2"
                               >
-                                <span className="text-primary mt-1.5 shrink-0">
+                                <span className="text-primary mt-1.5 shrink-0" aria-hidden="true">
                                   <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                                 </span>
                                 {bullet}
@@ -630,17 +636,17 @@ function EducationSection() {
   ];
 
   return (
-    <section id="education" className="py-20 md:py-28 bg-muted/30">
+    <section id="education" className="py-20 md:py-28 bg-muted/30" aria-label="Education and achievements">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4" data-testid="heading-education">
             Education & Achievements
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          <Card>
+          <Card data-testid="card-education">
             <CardHeader>
               <div className="flex items-center gap-4 mb-2">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -663,11 +669,11 @@ function EducationSection() {
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  <Badge variant="outline">
+                  <Badge variant="outline" data-testid="badge-gpa-education">
                     <TrendingUp className="h-3 w-3 mr-1" />
                     3.7 GPA
                   </Badge>
-                  <Badge variant="outline">Graduated June 2025</Badge>
+                  <Badge variant="outline" data-testid="badge-graduation">Graduated June 2025</Badge>
                 </div>
                 <div>
                   <p className="text-sm font-medium mb-2">Relevant Coursework:</p>
@@ -684,8 +690,8 @@ function EducationSection() {
           </Card>
 
           <div className="space-y-4">
-            {achievements.map((achievement) => (
-              <Card key={achievement.title} className="hover-elevate">
+            {achievements.map((achievement, index) => (
+              <Card key={achievement.title} className="hover-elevate" data-testid={`card-achievement-${index}`}>
                 <CardContent className="p-4">
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -743,18 +749,18 @@ function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="py-20 md:py-28">
+    <section id="skills" className="py-20 md:py-28" aria-label="Skills and expertise">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4" data-testid="heading-skills">
             Skills & Expertise
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((category) => (
-            <Card key={category.title}>
+          {skillCategories.map((category, index) => (
+            <Card key={category.title} data-testid={`card-skill-${index}`}>
               <CardHeader className="pb-3">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -782,14 +788,14 @@ function SkillsSection() {
 
 function ContactSection() {
   return (
-    <section id="contact" className="py-20 md:py-28 bg-muted/30">
+    <section id="contact" className="py-20 md:py-28 bg-muted/30" aria-label="Contact information">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4" data-testid="heading-contact">
             Let&apos;s Connect
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-6" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-contact-summary">
             I&apos;m always interested in discussing new opportunities, 
             collaborations, or just connecting with fellow professionals 
             in finance and tech.
@@ -798,21 +804,21 @@ function ContactSection() {
 
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           <Button size="lg" asChild data-testid="button-email">
-            <a href="mailto:liascarroll@gmail.com">
+            <a href="mailto:liascarroll@gmail.com" aria-label="Send email to liascarroll@gmail.com">
               <Mail className="h-4 w-4" />
               liascarroll@gmail.com
             </a>
           </Button>
           <Button size="lg" variant="outline" asChild data-testid="button-linkedin-footer">
-            <a href="https://www.linkedin.com/in/lia-carroll" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/lia-carroll" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile (opens in new tab)">
               <Linkedin className="h-4 w-4" />
               LinkedIn
             </a>
           </Button>
         </div>
 
-        <div className="flex items-center justify-center gap-2 text-muted-foreground">
-          <MapPin className="h-4 w-4" />
+        <div className="flex items-center justify-center gap-2 text-muted-foreground" data-testid="text-location">
+          <MapPin className="h-4 w-4" aria-hidden="true" />
           <span>Seattle, WA</span>
         </div>
       </div>
@@ -822,11 +828,11 @@ function ContactSection() {
 
 function Footer() {
   return (
-    <footer className="py-8 border-t border-border">
+    <footer className="py-8 border-t border-border" role="contentinfo">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>Lia Carroll - Portfolio</p>
-          <p>Built with passion and precision</p>
+          <p data-testid="text-footer-name">Lia Carroll - Portfolio</p>
+          <p data-testid="text-footer-tagline">Built with passion and precision</p>
         </div>
       </div>
     </footer>
