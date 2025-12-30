@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Trophy, Globe, Database, BarChart3, FileSpreadsheet } from "lucide-react";
+import { Code, Trophy, Globe, Database, TrendingUp, FileSpreadsheet, Car, ShoppingCart } from "lucide-react";
 
 export function ProjectsSection() {
   const featuredProject = {
@@ -11,31 +11,40 @@ export function ProjectsSection() {
     techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
   };
 
-  const undergraduateProjects = [
+  const projects = [
     {
-      id: "data-analytics",
-      title: "Financial Data Analytics Dashboard",
-      course: "Business Data Analytics",
+      id: "ma-valuation",
+      title: "Celsius-Poppi M&A Valuation",
+      course: "Corporate Finance",
       description:
-        "Built an interactive dashboard for analyzing stock market trends using Python and data visualization libraries. Implemented predictive models for investment recommendations.",
-      techStack: ["Python", "Pandas", "Matplotlib", "Excel"],
-      icon: BarChart3,
+        "Developed a comprehensive M&A analysis modeling Celsius's hypothetical acquisition of Poppi. Conducted independent valuation, evaluated potential synergies, determined acquisition pricing, and performed comparable company analysis. Delivered detailed due diligence assessment and structured deal financing recommendations.",
+      techStack: ["Financial Modeling", "Valuation", "M&A Analysis", "Excel"],
+      icon: TrendingUp,
     },
     {
-      id: "database-mgmt",
-      title: "Database Management System",
+      id: "paybyphone",
+      title: "PayByPhone Feature Implementation",
+      course: "Program Management",
+      description:
+        "Led strategic product development for PayByPhone, proposing a parking spot reservation feature with real-time availability display. Delivered comprehensive analysis including user research, solution design, go-to-market timeline, cost-benefit analysis, resource requirements, funding estimates, competitive differentiation, and value proposition.",
+      techStack: ["Product Strategy", "Market Analysis", "Project Planning"],
+      icon: Car,
+    },
+    {
+      id: "ecommerce-analytics",
+      title: "E-Commerce Sales Analysis",
       course: "Database Management",
       description:
-        "Designed and implemented a relational database for a retail business, including ER diagrams, SQL queries, and stored procedures for inventory management.",
-      techStack: ["SQL", "PostgreSQL", "ER Modeling"],
-      icon: Database,
+        "Conducted comprehensive SQL-based sales analysis for an e-commerce retailer to uncover actionable business insights. Identified customer purchasing trends, product bundling opportunities, high-value target markets, and uncovered significant order cancellation patterns requiring strategic intervention.",
+      techStack: ["SQL", "Data Analysis", "Business Intelligence"],
+      icon: ShoppingCart,
     },
     {
       id: "nordstrom",
       title: "Nordstrom Gen Z Strategy",
       course: "Case Competition - 1st Place",
       description:
-        "Developed a comprehensive Gen Z engagement strategy for Nordstrom using ROI analysis, market research, and strategic positioning frameworks.",
+        "Developed a comprehensive Gen Z engagement strategy for Nordstrom using ROI analysis, market research, and strategic positioning frameworks. Awarded first place for innovative approach and actionable recommendations.",
       techStack: ["Financial Modeling", "Market Analysis", "Excel"],
       icon: Trophy,
     },
@@ -44,27 +53,18 @@ export function ProjectsSection() {
       title: "H&M Sustainability Initiative",
       course: "Case Competition - Finalist",
       description:
-        "Proposed build/buy/partner recommendations for H&M sustainability initiatives, demonstrating strategic creativity and analytical problem-solving.",
+        "Proposed build/buy/partner recommendations for H&M sustainability initiatives, demonstrating strategic creativity and analytical problem-solving capabilities.",
       techStack: ["Strategy", "Sustainability", "Business Analysis"],
       icon: Globe,
     },
     {
-      id: "finance-model",
-      title: "Corporate Financial Model",
-      course: "Corporate Finance",
+      id: "database-mgmt",
+      title: "Retail Database System",
+      course: "Database Management",
       description:
-        "Created comprehensive financial models including DCF valuation, sensitivity analysis, and scenario planning for M&A evaluation.",
-      techStack: ["Excel", "Financial Modeling", "Valuation"],
-      icon: FileSpreadsheet,
-    },
-    {
-      id: "network-security",
-      title: "Network Security Analysis",
-      course: "Networks & Cybersecurity",
-      description:
-        "Conducted security assessment and vulnerability analysis of enterprise network infrastructure, proposing mitigation strategies.",
-      techStack: ["Security", "Network Analysis", "Risk Assessment"],
-      icon: Code,
+        "Designed and implemented a relational database for a retail business, including ER diagrams, optimized SQL queries, and stored procedures for inventory management and reporting.",
+      techStack: ["SQL", "PostgreSQL", "ER Modeling"],
+      icon: Database,
     },
   ];
 
@@ -106,11 +106,11 @@ export function ProjectsSection() {
           </div>
         </Card>
 
-        <h3 className="text-2xl font-semibold mb-6 text-center" data-testid="heading-undergraduate-projects">
-          Undergraduate Projects
+        <h3 className="text-2xl font-semibold mb-6 text-center" data-testid="heading-additional-projects">
+          Projects
         </h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="grid-projects">
-          {undergraduateProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <Card key={project.id} className="hover-elevate" data-testid={`card-project-${project.id}`}>
               <CardHeader>
                 <div className="flex items-start justify-between gap-2 mb-2">
