@@ -36,10 +36,10 @@ export function AboutSection() {
 
         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-16 text-center max-w-3xl mx-auto" data-testid="text-about-summary">
           As an Investment Operations Analyst at Morgan Stanley&apos;s Parametric division, 
-          I combine my dual expertise in Finance and Information Systems to streamline 
-          complex operational processes. My background spans from managing <span className="text-foreground font-medium">$1M+ budgets</span> to 
-          developing scalable scheduling systems for <span className="text-foreground font-medium">300+ clients</span>, always focusing on the 
-          intersection of strategic finance and technical innovation.
+          I combine my dual expertise in Finance and Information Systems daily to focus on 
+          operational processes. My background spans from managing <span className="text-foreground font-medium">$1M+ budgets</span>, to 
+          developing scalable scheduling systems for <span className="text-foreground font-medium">300+ clients</span>, to designing and creating 
+          a property management system, always focusing on the intersection of strategic finance and technical innovation.
         </p>
 
         <div className="grid md:grid-cols-3 gap-6" data-testid="grid-competencies">
