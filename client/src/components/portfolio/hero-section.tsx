@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Briefcase, GraduationCap, Trophy, Globe, ChevronDown, Linkedin } from "lucide-react";
+import { Briefcase, GraduationCap, Trophy, ChevronDown, Linkedin } from "lucide-react";
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -52,10 +52,6 @@ export function HeroSection() {
           <Badge variant="outline" data-testid="badge-hero-competition">
             <Trophy className="h-3 w-3 mr-1" />
             Case Competition Winner
-          </Badge>
-          <Badge variant="outline" data-testid="badge-hero-languages">
-            <Globe className="h-3 w-3 mr-1" />
-            Trilingual
           </Badge>
         </div>
 
