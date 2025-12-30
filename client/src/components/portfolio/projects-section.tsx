@@ -1,9 +1,38 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Code, Trophy, Globe, TrendingUp, Car, ShoppingCart, Smartphone, ExternalLink, Terminal } from "lucide-react";
+import { Code, Trophy, Globe, TrendingUp, Car, ShoppingCart, Smartphone, ExternalLink, Terminal, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
+
+import dashboardImg from "@assets/Screenshot_2025-12-29_174507_1767059332264.png";
+import propertiesImg from "@assets/Screenshot_2025-12-29_174553_1767059332263.png";
+import tenantsImg from "@assets/Screenshot_2025-12-29_174614_1767059332262.png";
+import leasesImg from "@assets/Screenshot_2025-12-29_174643_1767059332261.png";
+import financialsImg from "@assets/Screenshot_2025-12-29_174702_1767059332260.png";
+import maintenanceImg from "@assets/Screenshot_2025-12-29_174720_1767059332258.png";
+import calendarImg from "@assets/Screenshot_2025-12-29_174734_1767059332265.png";
 
 export function ProjectsSection() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const propertyPilotImages = [
+    { src: dashboardImg, label: "Dashboard" },
+    { src: propertiesImg, label: "Properties" },
+    { src: tenantsImg, label: "Tenants" },
+    { src: leasesImg, label: "Leases" },
+    { src: financialsImg, label: "Financials" },
+    { src: maintenanceImg, label: "Maintenance" },
+    { src: calendarImg, label: "Calendar" },
+  ];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % propertyPilotImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + propertyPilotImages.length) % propertyPilotImages.length);
+  };
+
   const featuredProject = {
     id: "property-pilot",
     title: "Property Pilot",
@@ -109,16 +138,56 @@ export function ProjectsSection() {
         </div>
 
         <Card className="mb-12 overflow-hidden" data-testid="card-featured-project">
-          <div className="md:flex">
-            <div className="md:w-1/2 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/10 p-8 flex items-center justify-center min-h-[280px]">
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                  <Code className="h-10 w-10 text-primary" />
+          <div className="lg:flex">
+            <div className="lg:w-3/5 bg-gradient-to-br from-primary/10 via-primary/5 to-accent/5 p-4 relative">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src={propertyPilotImages[currentImageIndex].src}
+                  alt={`Property Pilot - ${propertyPilotImages[currentImageIndex].label}`}
+                  className="w-full h-auto"
+                  data-testid="img-featured-screenshot"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
+                  <p className="text-white text-sm font-medium text-center">
+                    {propertyPilotImages[currentImageIndex].label}
+                  </p>
                 </div>
-                <p className="text-sm text-muted-foreground" data-testid="text-featured-platform">Replit Project</p>
+              </div>
+              <div className="flex items-center justify-center gap-3 mt-4">
+                <Button
+                  size="icon"
+                  variant="outline"
+                  onClick={prevImage}
+                  aria-label="Previous screenshot"
+                  data-testid="button-prev-image"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+                <div className="flex gap-1.5">
+                  {propertyPilotImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-colors ${
+                        index === currentImageIndex ? "bg-primary" : "bg-muted-foreground/30"
+                      }`}
+                      aria-label={`Go to image ${index + 1}`}
+                      data-testid={`button-dot-${index}`}
+                    />
+                  ))}
+                </div>
+                <Button
+                  size="icon"
+                  variant="outline"
+                  onClick={nextImage}
+                  aria-label="Next screenshot"
+                  data-testid="button-next-image"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
               </div>
             </div>
-            <div className="md:w-1/2 p-8">
+            <div className="lg:w-2/5 p-8">
               <Badge className="mb-4" data-testid="badge-featured">Featured</Badge>
               <h3 className="text-2xl font-bold mb-3" data-testid="text-featured-title">{featuredProject.title}</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed" data-testid="text-featured-description">
