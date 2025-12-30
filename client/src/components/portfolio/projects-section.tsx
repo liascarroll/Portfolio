@@ -75,7 +75,7 @@ export function ProjectsSection() {
         "Designed an interactive Figma prototype proposing a new 'Party Lyft' feature for Lyft, enabling group ride coordination for events and nightlife. Created comprehensive user flows, wireframes, and high-fidelity mockups demonstrating the end-to-end booking experience for group transportation.",
       techStack: ["Figma", "UI/UX Design", "Prototyping", "User Research"],
       icon: Smartphone,
-      link: "https://www.figma.com/proto/WbFwQwKH2smHlLY4NkOk50/Party-Lyft-App-Prototype?node-id=0-1&t=cN5NekPZYYqDIQXQ-1",
+      link: "https://www.figma.com/proto/ifMvhGFvdx3qRDBT4VTKTo/Lyft-Party?type=design&node-id=23-209&scaling=scale-down&page-id=21%3A6&starting-point-node-id=23%3A209",
     },
     {
       id: "python-taxpayer",
