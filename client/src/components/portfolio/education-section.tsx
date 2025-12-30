@@ -12,6 +12,9 @@ export function EducationSection() {
     { id: "database", name: "Database Management" },
     { id: "data-analytics", name: "Business Data Analytics" },
     { id: "corp-finance", name: "Corporate Finance" },
+    { id: "program-mgmt", name: "Program Management" },
+    { id: "hedge-pe", name: "Hedge Funds and Private Equity" },
+    { id: "comm-speaking", name: "Strategic Communication and Public Speaking" },
   ];
 
   const achievements = [
