@@ -86,6 +86,15 @@ export function ProjectsSection() {
       techStack: ["Python", "Data Structures", "File I/O", "Algorithms"],
       icon: Terminal,
     },
+    {
+      id: "real-estate-dcf",
+      title: "Real Estate Investment DCF Analysis",
+      course: "Real Estate Finance",
+      description:
+        "Proposed the purchase of an investment property through comprehensive DCF analysis. Located and evaluated a target property, conducted area and property analysis, performed affordability analysis using current market context, and analyzed rent and sale comparables. Developed detailed financing strategy including lender selection and loan structuring, assessed risk-reward tradeoffs, performed sensitivity and scenario analysis, and delivered a final investment recommendation based on findings.",
+      techStack: ["DCF Modeling", "Financial Analysis", "Real Estate Valuation", "Excel"],
+      icon: TrendingUp,
+    },
   ];
 
   return (
