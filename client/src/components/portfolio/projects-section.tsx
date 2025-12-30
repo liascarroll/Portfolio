@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Code, Trophy, Globe, TrendingUp, Car, ShoppingCart, Smartphone, ExternalLink } from "lucide-react";
+import { Code, Trophy, Globe, TrendingUp, Car, ShoppingCart, Smartphone, ExternalLink, Terminal } from "lucide-react";
 
 export function ProjectsSection() {
   const featuredProject = {
@@ -76,6 +76,15 @@ export function ProjectsSection() {
       techStack: ["Figma", "UI/UX Design", "Prototyping", "User Research"],
       icon: Smartphone,
       link: "https://www.figma.com/proto/WbFwQwKH2smHlLY4NkOk50/Party-Lyft-App-Prototype?node-id=0-1&t=cN5NekPZYYqDIQXQ-1",
+    },
+    {
+      id: "python-taxpayer",
+      title: "Taxpayer Management System",
+      course: "Python Programming",
+      description:
+        "Developed a comprehensive Python application for taxpayer data management featuring input validation, tax computation logic based on income brackets and marital status, file I/O operations, search functionality, and formatted reporting. Demonstrated proficiency in data structures, control flow, and modular programming.",
+      techStack: ["Python", "Data Structures", "File I/O", "Algorithms"],
+      icon: Terminal,
     },
   ];
 
