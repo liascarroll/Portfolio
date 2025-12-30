@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Trophy, Globe, TrendingUp, Car, ShoppingCart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Code, Trophy, Globe, TrendingUp, Car, ShoppingCart, Smartphone, ExternalLink } from "lucide-react";
 
 export function ProjectsSection() {
   const featuredProject = {
@@ -66,6 +67,16 @@ export function ProjectsSection() {
       techStack: ["LBO Modeling", "Valuation", "Capital Structure", "Excel"],
       icon: TrendingUp,
     },
+    {
+      id: "party-lyft",
+      title: "Party Lyft App Prototype",
+      course: "Product Design",
+      description:
+        "Designed an interactive Figma prototype proposing a new 'Party Lyft' feature for Lyft, enabling group ride coordination for events and nightlife. Created comprehensive user flows, wireframes, and high-fidelity mockups demonstrating the end-to-end booking experience for group transportation.",
+      techStack: ["Figma", "UI/UX Design", "Prototyping", "User Research"],
+      icon: Smartphone,
+      link: "https://www.figma.com/proto/WbFwQwKH2smHlLY4NkOk50/Party-Lyft-App-Prototype?node-id=0-1&t=cN5NekPZYYqDIQXQ-1",
+    },
   ];
 
   return (
@@ -127,13 +138,20 @@ export function ProjectsSection() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-1.5" data-testid={`badges-tech-${project.id}`}>
+                <div className="flex flex-wrap gap-1.5 mb-4" data-testid={`badges-tech-${project.id}`}>
                   {project.techStack.map((tech, i) => (
                     <Badge key={tech} variant="outline" className="text-xs" data-testid={`badge-tech-${project.id}-${i}`}>
                       {tech}
                     </Badge>
                   ))}
                 </div>
+                {project.link && (
+                  <Button variant="outline" size="sm" asChild data-testid={`button-view-${project.id}`}>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      View Prototype <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+                    </a>
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ))}
