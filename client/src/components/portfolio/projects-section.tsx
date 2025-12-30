@@ -43,12 +43,39 @@ export function ProjectsSection() {
 
   const projects = [
     {
+      id: "nordstrom",
+      title: "Nordstrom Gen Z Strategy",
+      course: "Case Competition - 1st Place",
+      description:
+        "Developed a comprehensive Gen Z engagement strategy for Nordstrom using ROI analysis, market research, and strategic positioning frameworks. Awarded first place for innovative approach and actionable recommendations.",
+      techStack: ["Financial Modeling", "Market Analysis", "Excel"],
+      icon: Trophy,
+    },
+    {
       id: "ma-valuation",
       title: "Celsius-Poppi M&A Valuation",
       course: "Corporate Finance",
       description:
         "Developed a comprehensive M&A analysis modeling Celsius's hypothetical acquisition of Poppi. Conducted independent valuation, evaluated potential synergies, determined acquisition pricing, and performed comparable company analysis. Delivered detailed due diligence assessment and structured deal financing recommendations.",
       techStack: ["Financial Modeling", "Valuation", "M&A Analysis", "Excel"],
+      icon: TrendingUp,
+    },
+    {
+      id: "lbo-analysis",
+      title: "Helen of Troy LBO Analysis",
+      course: "Hedge Funds & Private Equity",
+      description:
+        "Proposed a leveraged buyout to take Helen of Troy private, a conglomerate spanning Beauty & Wellness, Houseware, and Health & Home segments. Developed post-acquisition strategy to divest Beauty & Wellness for deleveraging while focusing on high-margin Health & Home sectors. Presented comprehensive valuation, debt-to-equity structure, capital structure, and deal rationale supported by comparable company analysis.",
+      techStack: ["LBO Modeling", "Valuation", "Capital Structure", "Excel"],
+      icon: TrendingUp,
+    },
+    {
+      id: "real-estate-dcf",
+      title: "Real Estate Investment DCF Analysis",
+      course: "Real Estate Finance",
+      description:
+        "Proposed the purchase of an investment property through comprehensive DCF analysis. Located and evaluated a target property, conducted area and property analysis, performed affordability analysis using current market context, and analyzed rent and sale comparables. Developed detailed financing strategy including lender selection and loan structuring, assessed risk-reward tradeoffs, performed sensitivity and scenario analysis, and delivered a final investment recommendation based on findings.",
+      techStack: ["DCF Modeling", "Financial Analysis", "Real Estate Valuation", "Excel"],
       icon: TrendingUp,
     },
     {
@@ -70,31 +97,13 @@ export function ProjectsSection() {
       icon: ShoppingCart,
     },
     {
-      id: "nordstrom",
-      title: "Nordstrom Gen Z Strategy",
-      course: "Case Competition - 1st Place",
+      id: "python-taxpayer",
+      title: "Taxpayer Management System",
+      course: "Python Programming",
       description:
-        "Developed a comprehensive Gen Z engagement strategy for Nordstrom using ROI analysis, market research, and strategic positioning frameworks. Awarded first place for innovative approach and actionable recommendations.",
-      techStack: ["Financial Modeling", "Market Analysis", "Excel"],
-      icon: Trophy,
-    },
-    {
-      id: "hm-sustainability",
-      title: "H&M Sustainability Initiative",
-      course: "Case Competition - Finalist",
-      description:
-        "Proposed build/buy/partner recommendations for H&M sustainability initiatives, demonstrating strategic creativity and analytical problem-solving capabilities.",
-      techStack: ["Strategy", "Sustainability", "Business Analysis"],
-      icon: Globe,
-    },
-    {
-      id: "lbo-analysis",
-      title: "Helen of Troy LBO Analysis",
-      course: "Hedge Funds & Private Equity",
-      description:
-        "Proposed a leveraged buyout to take Helen of Troy private, a conglomerate spanning Beauty & Wellness, Houseware, and Health & Home segments. Developed post-acquisition strategy to divest Beauty & Wellness for deleveraging while focusing on high-margin Health & Home sectors. Presented comprehensive valuation, debt-to-equity structure, capital structure, and deal rationale supported by comparable company analysis.",
-      techStack: ["LBO Modeling", "Valuation", "Capital Structure", "Excel"],
-      icon: TrendingUp,
+        "Developed a comprehensive Python application for taxpayer data management featuring input validation, tax computation logic based on income brackets and marital status, file I/O operations, search functionality, and formatted reporting. Demonstrated proficiency in data structures, control flow, and modular programming.",
+      techStack: ["Python", "Data Structures", "File I/O", "Algorithms"],
+      icon: Terminal,
     },
     {
       id: "party-lyft",
@@ -107,22 +116,13 @@ export function ProjectsSection() {
       link: "https://www.figma.com/proto/ifMvhGFvdx3qRDBT4VTKTo/Lyft-Party?type=design&node-id=23-209&scaling=scale-down&page-id=21%3A6&starting-point-node-id=23%3A209",
     },
     {
-      id: "python-taxpayer",
-      title: "Taxpayer Management System",
-      course: "Python Programming",
+      id: "hm-sustainability",
+      title: "H&M Sustainability Initiative",
+      course: "Case Competition - Finalist",
       description:
-        "Developed a comprehensive Python application for taxpayer data management featuring input validation, tax computation logic based on income brackets and marital status, file I/O operations, search functionality, and formatted reporting. Demonstrated proficiency in data structures, control flow, and modular programming.",
-      techStack: ["Python", "Data Structures", "File I/O", "Algorithms"],
-      icon: Terminal,
-    },
-    {
-      id: "real-estate-dcf",
-      title: "Real Estate Investment DCF Analysis",
-      course: "Real Estate Finance",
-      description:
-        "Proposed the purchase of an investment property through comprehensive DCF analysis. Located and evaluated a target property, conducted area and property analysis, performed affordability analysis using current market context, and analyzed rent and sale comparables. Developed detailed financing strategy including lender selection and loan structuring, assessed risk-reward tradeoffs, performed sensitivity and scenario analysis, and delivered a final investment recommendation based on findings.",
-      techStack: ["DCF Modeling", "Financial Analysis", "Real Estate Valuation", "Excel"],
-      icon: TrendingUp,
+        "Proposed build/buy/partner recommendations for H&M sustainability initiatives, demonstrating strategic creativity and analytical problem-solving capabilities.",
+      techStack: ["Strategy", "Sustainability", "Business Analysis"],
+      icon: Globe,
     },
   ];
 
