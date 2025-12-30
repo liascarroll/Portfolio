@@ -14,6 +14,9 @@ export function SkillsSection() {
         { id: "sql", name: "SQL" },
         { id: "excel", name: "Excel (Certified)" },
         { id: "sheets", name: "Google Sheets" },
+        { id: "replit", name: "Replit" },
+        { id: "github", name: "GitHub" },
+        { id: "claude", name: "Claude" },
       ],
     },
     {
