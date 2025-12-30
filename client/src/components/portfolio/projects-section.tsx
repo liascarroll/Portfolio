@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Trophy, Globe, Database, TrendingUp, FileSpreadsheet, Car, ShoppingCart } from "lucide-react";
+import { Code, Trophy, Globe, TrendingUp, Car, ShoppingCart } from "lucide-react";
 
 export function ProjectsSection() {
   const featuredProject = {
@@ -58,13 +58,13 @@ export function ProjectsSection() {
       icon: Globe,
     },
     {
-      id: "database-mgmt",
-      title: "Retail Database System",
-      course: "Database Management",
+      id: "lbo-analysis",
+      title: "Helen of Troy LBO Analysis",
+      course: "Hedge Funds & Private Equity",
       description:
-        "Designed and implemented a relational database for a retail business, including ER diagrams, optimized SQL queries, and stored procedures for inventory management and reporting.",
-      techStack: ["SQL", "PostgreSQL", "ER Modeling"],
-      icon: Database,
+        "Proposed a leveraged buyout to take Helen of Troy private, a conglomerate spanning Beauty & Wellness, Houseware, and Health & Home segments. Developed post-acquisition strategy to divest Beauty & Wellness for deleveraging while focusing on high-margin Health & Home sectors. Presented comprehensive valuation, debt-to-equity structure, capital structure, and deal rationale supported by comparable company analysis.",
+      techStack: ["LBO Modeling", "Valuation", "Capital Structure", "Excel"],
+      icon: TrendingUp,
     },
   ];
 
