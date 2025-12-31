@@ -13,7 +13,7 @@ export function AboutSection() {
       id: "technical",
       icon: Code,
       title: "Technical Leadership",
-      description: "Python, SQL, Java development with data analytics expertise",
+      description: "Python, SQL, with data analytics expertise",
     },
     {
       id: "collaboration",
