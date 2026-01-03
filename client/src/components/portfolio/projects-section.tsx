@@ -81,7 +81,7 @@ export function ProjectsSection() {
     {
       id: "paybyphone",
       title: "PayByPhone Feature Implementation",
-      course: "Program Management",
+      course: "Project Management",
       description:
         "Led strategic product development for PayByPhone, proposing a parking spot reservation feature with real-time availability display. Delivered comprehensive analysis including user research, solution design, go-to-market timeline, cost-benefit analysis, resource requirements, funding estimates, competitive differentiation, and value proposition.",
       techStack: ["Product Strategy", "Market Analysis", "Project Planning"],
