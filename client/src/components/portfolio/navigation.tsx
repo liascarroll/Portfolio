@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/theme-provider";
-import { Download, Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
@@ -87,18 +87,6 @@ export function Navigation() {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Button
-              variant="default"
-              size="sm"
-              className="hidden md:inline-flex"
-              data-testid="button-download-resume"
-              asChild
-            >
-              <a href="/Resume_-_12.1.25_-_Lia_Carroll_1766980682443.pdf" download aria-label="Download resume PDF">
-                <Download className="h-4 w-4" />
-                Resume
-              </a>
-            </Button>
-            <Button
               size="icon"
               variant="ghost"
               className="md:hidden"
@@ -151,18 +139,6 @@ export function Navigation() {
               >
                 Contact
               </a>
-              <Button
-                variant="default"
-                size="sm"
-                className="w-fit"
-                data-testid="button-download-resume-mobile"
-                asChild
-              >
-                <a href="/Resume_-_12.1.25_-_Lia_Carroll_1766980682443.pdf" download aria-label="Download resume PDF">
-                  <Download className="h-4 w-4" />
-                  Resume
-                </a>
-              </Button>
             </div>
           </div>
         )}
